@@ -6,6 +6,10 @@
 @section('content')
 @auth
     <h1>Welcome {{auth()->user()->name}}</h1>
+    <form action="/logout" method="POST">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
 @else
 <form action="/register" method="POST">
     @csrf

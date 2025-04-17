@@ -10,3 +10,6 @@ Route::get('/', function () {
 
 Route::post('/register', [UserController::class, 'register'])
     ->name('register');
+
+Route::post('/logout', [UserController::class, 'logout'])
+    ->name('logout');

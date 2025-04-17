@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function logout()
+    {
+        auth()->logout();
+        return redirect('/');
+    }
     public function register(Request $request)
     {
         $incomingFields = $request->validate([
@@ -17,6 +22,6 @@ class UserController extends Controller
         $incomingFields['password'] = bcrypt($incomingFields['password']);
         $user = User::create($incomingFields);
         auth()->login($user);
-        return redirect('/')->with('success', 'Registration successful!');
+        return redirect('/');
     }
 }
